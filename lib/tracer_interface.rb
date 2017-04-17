@@ -50,11 +50,11 @@ class TracerInterface
   end
   
   def read_value(val, d)
-    return CLIENT.with_slave(1).input_registers[hex_to_dec(val)].first / d
+    return @client.with_slave(@slave).input_registers[hex_to_dec(val)].first / d
   end
 
   def read_raw_value(val)
-    return CLIENT.with_slave(1).input_registers[hex_to_dec(val)] 
+    return @client.with_slave(@slave).input_registers[hex_to_dec(val)] 
   end
   
   def hex_to_dec(hex)
