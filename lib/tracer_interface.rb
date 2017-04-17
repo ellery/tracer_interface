@@ -18,6 +18,21 @@ class TracerInterface
     @slave = i
   end
   
+  def rated_datum
+    h ={}
+    h['array rated voltage'] = read_value('3000', 100)
+    h['array rated current'] = read_value('3001', 100)
+    h['array rated power L'] = read_value('3002', 100)
+    h['array rated power H'] = read_value('3003', 100)
+    h['Battery rated voltage'] = read_value('3004', 100)
+    h['Battery rated current'] = read_value('3005', 100)
+    h['Battery rated power L'] = read_value('3006', 100)
+    h['Battery rated power H'] = read_value('3007', 100)
+    h['Charging mode'] = read_value('3008', 100)
+    h['Rated current of load'] = read_value('300E', 100)
+    return h
+    
+  end
   
   def realtime_data
     h ={}
