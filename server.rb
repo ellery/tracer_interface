@@ -1,4 +1,4 @@
-require "version"
+require "bundler/setup"
 require 'timeout'
 require 'serialport'
 require 'rmodbus'
@@ -7,12 +7,8 @@ require 'sinatra'
 require 'json'
 
 
-@a = TracerInterface.new("/dev/ttyXRUSB0")
-
-
-
-get '/ ' do  
-  'Welcome'
+get '/' do  
+  "Welcome"
 end  
 
 get '/realtime' do

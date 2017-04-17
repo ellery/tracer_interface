@@ -1,4 +1,4 @@
-require "version"
+require "tracer_version"
 require 'timeout'
 require 'serialport'
 require 'rmodbus'

@@ -1,11 +1,11 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'version'
+require 'tracer_version'
 
 Gem::Specification.new do |spec|
   spec.name          = "tracer-interface"
-  spec.version       = Tracer::Interface::VERSION
+  spec.version       = TracerVersion::VERSION
   spec.authors       = ["Ellery Durgin"]
   spec.email         = ["ejd91717@gmail.com"]
   spec.summary       = %q{ tracer-ruby is a gem to interact with EPEVER Tracer solar charge controllers.}
