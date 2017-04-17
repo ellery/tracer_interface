@@ -1,17 +1,16 @@
-
+require "version"
+require 'timeout'
+require 'serialport'
+require 'rmodbus'
 
 class TracerInterface
-  require "version"
-  require 'timeout'
-  require 'serialport'
-  require 'rmodbus'
+
   
   
   def initialize(port, baud_rate=115200, slave_id=1)
-    
     @port = port
     @baud = baud_rate
-    @client = ModBus::RTUClient.connect(@port, @buad)
+    @client = ModBus::RTUClient.connect(@port, @baud)
     @slave = slave_id
   end
   
@@ -44,16 +43,20 @@ class TracerInterface
   
   def battery_status
     h = {}
-    h['Battery status'] = read_value('3200', 100)
-    h['Charging equipment status'] = read_value('3201', 100)
-    h['Discharging equipment status'] = read_value('3202', 100)
+    h['Battery status'] = read_raw_value('3200')
+    h['Charging equipment status'] = read_raw_value('3201')
+    h['Discharging equipment status'] = read_raw_value('3202')
     return h
   end
   
   def read_value(val, d)
-    return @client.with_slave(@slave).input_registers[hex_to_dec(val)].first 
+    return CLIENT.with_slave(1).input_registers[hex_to_dec(val)].first / d
   end
 
+  def read_raw_value(val)
+    return CLIENT.with_slave(1).input_registers[hex_to_dec(val)] 
+  end
+  
   def hex_to_dec(hex)
     return hex.to_i(16)
   end
