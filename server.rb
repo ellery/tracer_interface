@@ -21,7 +21,7 @@ get '/realtime' do
 end
 
 get '/rated' do
-  TracerInterface.new(settings.tty).realtime_data.to_json
+  TracerInterface.new(settings.tty).rated_datum.to_json
 end
 
 get '/statistical' do
