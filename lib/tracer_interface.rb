@@ -34,6 +34,39 @@ class TracerInterface
     
   end
   
+  
+  def statistical_params
+    h ={}
+  
+    h['Maximum PV voltage today'] = read_value('3300', 100)
+    h['Minimum PV voltage today'] = read_value('3301', 100)
+    h['Maximum battery voltage today'] = read_value('3302', 100)
+    h['Minimum battery voltage today'] = read_value('3303', 100)
+    h['Consumed energy today L'] = read_value('3304', 100)
+    h['Battery power H'] = read_value('3305', 100)
+    h['Consumed energy today H'] = read_value('3306', 100)
+    h['Consumed energy this month L'] = read_value('3307', 100)
+    h['Consumed energy this month H'] = read_value('3308', 100)
+    h['Consumed energy this year L'] = read_value('3309', 100)
+    h['Consumed energy this year H'] = read_value('330A', 100)
+    h['Total consumed energy L'] = read_value('330B', 100)
+    h['Total consumed energy H'] = read_value('330C', 100)
+    h['Generated energy today L'] = read_value('330D', 100)
+    h['Generated energy today H'] = read_value('330E', 100)
+    
+    h['Generated energy this month L'] = read_value('330E', 100)
+    h['Generated energy this month H'] = read_value('330F', 100)
+    h['Generated energy this year L'] = read_value('3310', 100)
+    h['Generated energy this year H'] = read_value('3311', 100)
+    h['Total generated energy L'] = read_value('3312', 100)
+    h['Total Generated energy H'] = read_value('3313', 100)
+    h['Battery voltage'] = read_value('331A', 100)
+    h['Battery current L'] = read_value('331B', 100)
+    h['Battery current H'] = read_value('331C', 100)
+ 
+    return h
+  end
+  
   def realtime_data
     h ={}
   
