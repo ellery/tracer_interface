@@ -7,3 +7,4 @@ gemspec
 gem 'rmodbus', github: 'rmodbus/rmodbus'
 gem 'serialport'
 gem 'sinatra'
+gem 'sinatra-contrib'  
