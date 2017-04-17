@@ -8,3 +8,4 @@ gem 'rmodbus', github: 'rmodbus/rmodbus'
 gem 'serialport'
 gem 'sinatra'
 gem 'sinatra-contrib'  
+gem 'puma' # dealing with slow responses from sinatra
